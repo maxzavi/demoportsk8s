@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  democlient
-  namespace: prueba
   labels:
     app:  democlient
 spec:
@@ -20,4 +19,4 @@ spec:
         image:  mzavaletav/democlient:2.0
         env:
         - name: URL
-          value: http://10.43.215.15:8080          
+          value: http://10.20.12.162:31033

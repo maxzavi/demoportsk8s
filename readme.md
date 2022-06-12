@@ -158,5 +158,5 @@ docker push mzavaletav/democlient:1.1
 use kubectl for deploy.yaml in k8s, asign ip in env URL and deploy using kubectl
 
 ```cmd
-kubectl -n prueba apply -f deploy.yaml
+kubectl -n prueba apply -f deploy-client.yaml
 ```
