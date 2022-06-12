@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  democlient
+  namespace: prueba
+  labels:
+    app:  democlient
+spec:
+  selector:
+    matchLabels:
+      app: democlient
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app:  democlient
+    spec:
+      containers:
+      - name:  democlient
+        image:  mzavaletav/democlient:2.0
+        env:
+        - name: URL
+          value: http://10.43.221.129:8080          

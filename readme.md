@@ -54,6 +54,19 @@ docker push mzavaletav/demoapi:1.1
 
 Deploy in k8s, using port mapping as **Node Port** and **Cluster IP**
 
+Use deployClusterIP.yaml for Cluster ip
+
+```cmd
+kubectl -n prueba apply -f deployClusterIP.yaml
+```
+
+Nodeport, use deployNodePort.yaml
+
+```cmd
+kubectl -n prueba apply -f deployNodePort.yaml
+```
+
+
 1. Test without port mapping
 
 
@@ -142,3 +155,8 @@ docker build -t mzavaletav/democlient:1.1 .
 docker push mzavaletav/democlient:1.1
 ```
 
+use kubectl for deploy.yaml in k8s, asign ip in env URL and deploy using kubectl
+
+```cmd
+kubectl -n prueba apply -f deploy.yaml
+```
