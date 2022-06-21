@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: democontainer
+  labels:
+    app: democontainer
+spec:
+  containers:
+  - name: democontainer
+    image: mzavaletav/democontainer:1.1

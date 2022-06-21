@@ -1,3 +1,60 @@
+# Demo container
+
+Create project using *Spring Initializr* with:
+
+![Initializr](Captura01.JPG)
+
+implements CommandLineRunner, for process
+
+In database:
+
+```sql
+-- Create table
+create table DEMO
+(
+  field1 DATE
+);
+
+insert into demo(field1) values (sysdate);
+
+--Check
+select field1,trunc((sysdate-field1)*24*60,1) diff from DEMO
+```
+
+In src/main/resources file application.properties
+
+```config
+spring.datasource.url=jdbc:oracle:thin:@<<host>>:<<port>>:<<sid>>
+spring.datasource.username=<<username>>
+spring.datasource.password=****
+```
+
+## Docker
+In Dockerfile use *eclipse-temurin:17-jre-alpine* as base
+
+```docker
+FROM eclipse-temurin:17-jre-alpine
+ARG JAVA_OPTS
+ENV JAVA_OPTS=$JAVA_OPTS
+COPY target/democontainer-0.0.1-SNAPSHOT.jar democontainer.jar
+ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar democontainer.jar
+```
+
+Create image and push, package:
+
+```cmd
+mvn clean package -DskipTests
+```
+
+Docker build and push
+
+```cmd
+docker build -t mzavaletav/democontainer:1.0 .
+docker push mzavaletav/democontainer:1.0
+```
+
+
+
 # Api Demo
 
 Create project using *Spring Initializr* with Spring Web, and Spring Boot DevTools
