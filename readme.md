@@ -53,6 +53,11 @@ docker build -t mzavaletav/democontainer:1.0 .
 docker push mzavaletav/democontainer:1.0
 ```
 
+Create pod in k8s:
+
+```cmd
+kubectl -n democontainer apply -f deploy-pod.yaml
+```
 
 
 # Api Demo
